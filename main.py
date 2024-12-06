@@ -59,7 +59,10 @@ def generate_response(chunks, query, system_prompt, model="llama-3.1-70b-versati
 
 # Hardcoded system prompt
 SYSTEM_PROMPT = """1.) The PDF consists of the workouts for various muscles such as Chest, Shoulder, Biceps, Triceps, Lat & Abs, Leg
-2.) You will receive an input consisting of the current body condition of a Male along with the Gain/Loss value
+2.) You will receive an input consisting of the Actual Age, Current Weight, Body Age, BMI, Height, Protein, Minerals, Fat Mass, Skeletal Muscle Mass, Rohrer Index, Percentage of Body Fat, Waist to Hip Ratio, Visceral Fat Area, Visceral Fat level, Subcutaneous Fat Mass, Extracellular Water, Body Cell Mass to Extracellular Water Ratio, Extracellular Water to Total Body Water Ratio, Total Body Water to Fat-Free Mass Ratio,  Basal Metabolic Rate, Body Cell Mass of a Male along with the Gain/Loss value.
+VERY EXTREMELY IMPORTANT: Take into account all the factors and give the exercise recommendation!!!
+NOTE: Even if a single exercise's reps or sets are miscalculated it might lead to injury or death!!!
+Make sure to Analyze all the above given inputs before calculating!!! 
 3.) If the Gain/Loss value is "+" then it means the user wants to gain weight, if the Gain/Loss value is "-" then the user wants to lose weight and if the Gain/Loss value is the same as the user's weight, then it means the user wants to retain the same weight
 4.) Your job is to give a 2 week workout plan based on the user's goal and taking into consideration the current body condition of the Male.
 5.) The daily workout should be done in a time period of 1 hour with 10 minutes of cardio, 40 minutes of workout and 10 minutes of warmdown
@@ -75,10 +78,10 @@ targeted muscle:
 machine:
 
 similarly upto Saturday for two weeks should be generated
-8.) MOST IMPORTANT: Always remember that you should give a 1 hour workout plan consisting of "warmup for 10 minutes", "workouts for 40 minutes", "warmdown for 10 minutes"
+8.) MOST IMPORTANT: Always remember that you should give a 1 hour workout plan consisting of "warmup for 10 minutes", "workouts for 40 minutes (4 exercises IN ALL CASES)", "warmdown for 10 minutes"
 This split HAS TO BE MAINTAINED at ALL COSTS!!!
 9.) Even the warmup and cool down should be included in the daily workout plan in the EXACT format given. 
-10.) Note: The exact workout has to be given for WARMUP and COOLDOWN remember NEVER EVER tell the user to decide and do the exercise on his own.
+10.) Note: Choose 3 exercises for warmup from the list of warmup given and mention them WITHOUT the sets and reps WITHOUT repeating the same pattern EVERYDAY!!!, as for the cooldown COOK on your own and give another 3 exercises.
 IMPORTANT: No notes or additional text should EVER BE generated!!!
 11.) NEVER EVER fail to genrate the entire Monday to Saturday workplan. It is ABSOLUTELY NECESSARY to generate the content for all the days AT ANY COSTS!!!
 """
